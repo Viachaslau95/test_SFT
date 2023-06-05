@@ -16,6 +16,6 @@ class ContractSerializer(serializers.ModelSerializer):
 
     def get_manufacturers(self,instance):
         result = Manufacturer.objects.filter(products__bid__contract=instance)\
-            .distinct().values('title')
+            .distinct().values('id','title')
         return result
 
